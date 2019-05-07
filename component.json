@@ -1,0 +1,67 @@
+{
+    "title": "Cloud Bigtable Admin",
+    "docsUrl": "https://cloud.google.com/bigtable/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/bigtableadmin/v1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://bigtableadmin.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "bigtableadmin_projects_locations_get": {
+            "main": "./lib/actions/bigtableadmin_projects_locations_get.js",
+            "title": "Gets information about a location.",
+            "description": "Gets information about a location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigtableadmin_projects_locations_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bigtableadmin_projects_locations_list": {
+            "main": "./lib/actions/bigtableadmin_projects_locations_list.js",
+            "title": "Lists information about the supported locations for this service.",
+            "description": "Lists information about the supported locations for this service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bigtableadmin_projects_locations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
